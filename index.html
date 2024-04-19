@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .range-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .range-button {
+      padding: 10px;
+      background-color: #ddd;
+      border: none;
+      cursor: pointer; 
+     width: 30px;
+     height: 30px;
+     font-size: 16px;
+     cursor: pointer;
+    }
+    .range-input {
+      margin: 0 10px;
+      flex: 1;
+    }
+  </style>
+</head>
+<body style="text-align: center;">INCREASE AND DECREASE OF VOLUME(- & +)
+  <div class="range-container">
+    <button id="decrease-button" class="range-button">-</button>
+    <input type="range" id="range-input" class="range-input" min="0" max="100" value="50">
+    <button id="increase-button" class="range-button">+</button>
+  </div>
+
+  <script>
+    class RangeInput {
+      constructor() {
+        this.rangeInput = document.getElementById('range-input');
+        this.decreaseButton = document.getElementById('decrease-button');
+        this.increaseButton = document.getElementById('increase-button');
+        
+        this.decreaseButton.addEventListener('click', this.decreaseRange.bind(this));
+        this.increaseButton.addEventListener('click', this.increaseRange.bind(this));
+      }
+      
+      decreaseRange() {
+        this.rangeInput.value = parseInt(this.rangeInput.value) - 1;
+      }
+      
+      increaseRange() {
+        this.rangeInput.value = parseInt(this.rangeInput.value) + 1;
+      }
+    }
+    
+    const rangeInput = new RangeInput();
+  </script>
+</body>
+</html>
